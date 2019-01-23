@@ -4,7 +4,7 @@ class Element {
   float w = 100.0;
   float h = 24.0;
 
-  Element(App parent, float x_, float y_, float w_, float h_) {
+  Element(GUI parent, float x_, float y_, float w_, float h_) {
     parent.push(this);
     x = x_;
     y = y_;
