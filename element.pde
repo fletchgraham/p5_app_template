@@ -1,15 +1,16 @@
 class Element {
-  float x = 0.0;
-  float y = 0.0;
-  float w = 100.0;
-  float h = 24.0;
+  GUI parent;
+  int row = 0;
+  int col = 0;
 
-  Element(GUI parent, float x_, float y_, float w_, float h_) {
+  float x;
+  float y;
+  float w;
+  float h;
+
+  Element(GUI parent_) {
+    parent = parent_;
     parent.push(this);
-    x = x_;
-    y = y_;
-    w = w_;
-    h = h_;
   }
 
   PVector mouse_over() {
@@ -22,14 +23,19 @@ class Element {
       return null;
     }
   }
-  
+
   void render() {
-    if(mouse_over() != null) {
-      fill(255);
-    } else {
+    x = (width/parent.cols) * col;
+    y = (height/parent.rows) * row;
+    w = width/parent.cols;
+    h = height/parent.rows;
+
+    if (mouse_over() == null) {
       fill(0);
+    } else {
+      fill(255);
     }
     stroke(255);
-    rect(x,y,w,h);
+    rect(x, y, w, h);
   }
 }

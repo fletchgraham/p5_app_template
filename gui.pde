@@ -3,8 +3,8 @@ class GUI {
   
   // style:
   float margin = 16.0;
-  int rows = 4;
-  int cols = 4;
+  int rows = 2;
+  int cols = 2;
 
   void render() {
     for (Element elem : elements) {
